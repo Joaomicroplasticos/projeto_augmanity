@@ -17,7 +17,8 @@ def octomap_callback(msg, config):
         config (dict): mutable variable to store the message
     """
     config['octomap_msg'] = msg
-    config['resolution'] = msg.resolution
+    # config['resolution'] = msg.resolution
+    config['resolution'] = 10
     return
 
 def octomap_pc_callback(msg, config):
@@ -38,8 +39,8 @@ def main():
     world_frame = 'camera_depth_optical_frame' #Referencial da camâra
     octomap_topic = '/octomap_full'
     octomap_pc_topic = '/octomap_point_cloud_centers'
-    position = np.array([0, 2, 0]) #definição da posição do volume em relação a câmara
-    side_lengths = np.array([3, 3, 3])#definição do cumprimento de cada lado do paralelopipedo
+    position = np.array([0, -0.5, 1.5]) #definição da posição do volume em relação a câmara
+    side_lengths = np.array([2, 1.5, 1.5])#definição do cumprimento de cada lado do paralelopipedo
     threshold = 0.05
     visualize = True
     config = dict()
