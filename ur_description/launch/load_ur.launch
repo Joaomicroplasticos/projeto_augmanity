@@ -27,5 +27,5 @@
  <param name="robot_description" command="xacro  '$(find ur_description)/urdf/ur10e.xacro'"/>-->
 <!--   <param name="robot_description" command="xacro  '$(find larcc_cell_description)/urdf/larcc_cell.xacro'"/> -->
 
-<!--  <param name="robot_description_semantic" textfile="$(find ur10e_moveit_config)/config/ur10e.srdf" />-->
+ <param name="robot_description_semantic" textfile="$(find ur10e_moveit_config)/config/ur10e.srdf" />-->
 </launch>

@@ -17,8 +17,8 @@ def octomap_callback(msg, config):
         config (dict): mutable variable to store the message
     """
     config['octomap_msg'] = msg
-    # config['resolution'] = msg.resolution
-    config['resolution'] = 10
+    config['resolution'] = msg.resolution
+    # config['resolution'] = 0.001
     return
 
 def octomap_pc_callback(msg, config):
@@ -39,9 +39,10 @@ def main():
     world_frame = 'camera_depth_optical_frame' #Referencial da camâra
     octomap_topic = '/octomap_full'
     octomap_pc_topic = '/octomap_point_cloud_centers'
-    position = np.array([0, -0.5, 1.5]) #definição da posição do volume em relação a câmara
-    side_lengths = np.array([2, 1.5, 1.5])#definição do cumprimento de cada lado do paralelopipedo
-    threshold = 0.05
+    position = np.array([-0.1, 0.2, 0.7]) #definição da posição do volume em relação a câmara
+    side_lengths = np.array([0.8, 1, 0.8])#definição do cumprimento de cada lado do paralelopipedo
+    # threshold = 0.05
+    threshold = 0.56
     visualize = True
     config = dict()
     config['octomap_msg'] = None
@@ -63,7 +64,7 @@ def main():
     config['cell_volume'] = DetectedCell(side_lengths, world_frame, position, threshold, visualize)
     
     # Defining rate
-    rate = rospy.Rate(30)
+    rate = rospy.Rate(2000)
 
     # Defining listener
     listener = tf.TransformListener()

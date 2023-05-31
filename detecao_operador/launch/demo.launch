@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+    <include file="$(find ur_robot_driver)/launch/ur10e_bringup.launch">
+        <arg name="robot_ip" value="192.168.56.2"/>
+    </include>
+    <include file="$(find ur10e_moveit_config)/launch/ur10e_moveit_planning_execution.launch">
+    </include>
+    <include file="$(find astra_camera)/launch/astra.launch"/>
+    <include file="$(find augmanity_volumetric_detection)/launch/cell_occupancy_detection.launch"/>
+    <node pkg="detecao_operador" type="detecao_operador.py" name="detecao_operador"/>
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find detecao_operador)/rviz/detecao_operador.rviz" />
+</launch>
