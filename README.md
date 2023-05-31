@@ -5,4 +5,3 @@
 ```
 roslaunch detecao_operador demo.launch
 ```
-
