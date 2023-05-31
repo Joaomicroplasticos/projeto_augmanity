@@ -40,7 +40,8 @@ def main():
     octomap_pc_topic = '/octomap_point_cloud_centers'
     position = np.array([0, 2, 0]) #definição da posição do volume em relação a câmara
     side_lengths = np.array([3, 3, 3])#definição do cumprimento de cada lado do paralelopipedo
-    threshold = 0.05
+    # threshold = 0.05
+    threshold = 45
     visualize = True
     config = dict()
     config['octomap_msg'] = None
