@@ -1,0 +1,20 @@
+<launch>
+    <arg name="frame_id" default="camera_depth_optical_frame"/>
+    <arg name="max_range" default="5"/>
+    <arg name="output_topic" default="/all_points"/>
+    <arg name="resolution" default="0.1"/>
+
+    <include file="$(find augmanity_volumetric_detection)/launch/include/octomap.launch">
+        <arg name="frame_id" value="$(arg frame_id)"/>
+        <arg name="max_range" value="$(arg max_range)"/>
+        <arg name="pointcloud_topic" value="$(arg output_topic)"/>
+        <arg name="resolution" value="$(arg resolution)"/>
+    </include>
+
+    <!-- Relay all pointcloud to the same topic -->
+
+    <include file="$(find augmanity_volumetric_detection)/launch/include/pc_relay.launch">
+        <arg name="output_topic" value="$(arg output_topic)"/>
+    </include>
+
+</launch>

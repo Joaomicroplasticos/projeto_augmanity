@@ -1,0 +1,22 @@
+<launch>
+    <arg name="frame_id" default="camera_depth_optical_frame"/>
+    <arg name="max_range" default="5"/>
+    <arg name="pointcloud_topic" default="/camera_1/depth/points"/>
+    <arg name="resolution" default="0.1"/>
+
+    <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+            <param name="resolution" value="$(arg resolution)" />
+
+            <!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+            <param name="frame_id" type="string" value="$(arg frame_id)" />
+
+            <!-- maximum range to integrate (speedup!) -->
+            <param name="sensor_model/max_range" value="$(arg max_range)" />
+
+            <!-- data source to integrate (PointCloud2) -->
+            <remap from="cloud_in" to="$(arg pointcloud_topic)" />
+
+    </node>
+
+
+</launch>

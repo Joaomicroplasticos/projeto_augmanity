@@ -1,0 +1,15 @@
+<launch>
+    <arg name="output_topic" default="/all_points"/>
+
+    <!-- Relay all pointcloud to the same topic -->
+
+    <node pkg="topic_tools" type="relay" name="relay_camera" args="/camera/depth/points $(arg output_topic)"/>
+    
+    <!-- <node pkg="topic_tools" type="relay" name="lidar_1" args="/lidar_1/velodyne_points $(arg output_topic)"/> -->
+
+    <!-- <node pkg="topic_tools" type="relay" name="lidar_2" args="/lidar_2/velodyne_points $(arg output_topic)"/> -->
+
+    <!-- <node pkg="topic_tools" type="relay" name="lidar_3" args="/lidar_3/velodyne_points $(arg output_topic)"/> -->
+    
+
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="augmanity_volumetric_detection" type="cell_occupancy_detection.py" name="cell_occupancy_detection" output="screen"/>
+
+    <include file="$(find augmanity_volumetric_detection)/launch/full_octomap.launch"/>
+</launch>
