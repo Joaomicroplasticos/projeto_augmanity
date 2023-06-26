@@ -39,10 +39,9 @@ def main():
     world_frame = 'camera_depth_optical_frame' #Referencial da camâra
     octomap_topic = '/octomap_full'
     octomap_pc_topic = '/octomap_point_cloud_centers'
-    position = np.array([-0.1, 0.2, 0.7]) #definição da posição do volume em relação a câmara
-    side_lengths = np.array([0.8, 1, 0.8])#definição do cumprimento de cada lado do paralelopipedo
-    # threshold = 0.05
-    threshold = 0.56
+    position = np.array([-0.1, 0.2, 0.6]) #definição da posição do volume em relação a câmara
+    side_lengths = np.array([0.8, 1, 0.6])#definição do cumprimento de cada lado do paralelopipedo
+    threshold = 0.53
     visualize = True
     config = dict()
     config['octomap_msg'] = None
@@ -64,7 +63,8 @@ def main():
     config['cell_volume'] = DetectedCell(side_lengths, world_frame, position, threshold, visualize)
     
     # Defining rate
-    rate = rospy.Rate(2000)
+    rate = rospy.Rate(3000)
+    # rate = rospy.Rate(100)
 
     # Defining listener
     listener = tf.TransformListener()

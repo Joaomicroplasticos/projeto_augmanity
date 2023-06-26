@@ -2,4 +2,8 @@
     <node pkg="augmanity_volumetric_detection" type="cell_occupancy_detection.py" name="cell_occupancy_detection" output="screen"/>
 
     <include file="$(find augmanity_volumetric_detection)/launch/full_octomap.launch"/>
+
+
+<!--     <include file="$(find astra_camera)/launch/astra.launch"/> -->
+<!--     <node type="rviz" name="rviz" pkg="rviz" args="-d $(find augmanity_volumetric_detection)/Config/MicroPlasticos.rviz" /> -->
 </launch>
